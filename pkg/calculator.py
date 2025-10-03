@@ -17,8 +17,7 @@ class Calculator:
         if not expression or expression.isspace():
             return None
         tokens = expression.strip().split()
-        
-        tokens = expression.strip().split()
+        return self._shunting_yard(tokens)
         return self._shunting_yard(tokens)
 
     def _shunting_yard(self, tokens):
