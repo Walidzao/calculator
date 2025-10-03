@@ -19,22 +19,6 @@ class Calculator:
         tokens = expression.strip().split()
         return self._evaluate_infix(tokens)
 
-    def _evaluate_infix(self, tokens):
-        values = []
-        operators = []
-
-        for token in tokens:
-            if token in self.operators:
-                while (
-                    operators and self.precedence[token] <= self.precedence[operators[-1]]):
-                 
-                    self._apply_operator(operators, values)
-                operators.append(token)
-            else:
-                try:
-                    values.append(float(token))
-                except ValueError:
-                    raise ValueError(f"invalid token: {token}")
 
         while operators:
             self._apply_operator(operators, values)
